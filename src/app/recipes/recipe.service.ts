@@ -27,7 +27,7 @@ export class RecipeService{
         new Recipe(
             'Wada Paw',
             'It is testy Wadapaw made by Shital bari',
-            'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg',
+            'https://upload.wikimedia.org/wikipedia/commons/1/15/Vada_Paav-The_Mumbai_Burger.jpg',
         [
             new Ingredient('Buns',2),
             new Ingredient('Potatos',1),
