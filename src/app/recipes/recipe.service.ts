@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable } from "@angular/core";
 import { Recipe } from "./recipe.model";
 import { Ingredient } from "../shared/ingredient.model";
+import { ShoppingListService } from "../shopping-list/shopping-list.service";
 
 @Injectable()
 export class RecipeService{
@@ -25,7 +26,7 @@ export class RecipeService{
         ]
         ),
         new Recipe(
-            'Wada Paw',
+            'Vada Pav',
             'It is testy Wadapaw made by Shital bari',
             'https://upload.wikimedia.org/wikipedia/commons/1/15/Vada_Paav-The_Mumbai_Burger.jpg',
         [
@@ -35,7 +36,12 @@ export class RecipeService{
         ]
         )
       ];
+      constructor(private slService:ShoppingListService){}
       getRecipes(){
           return this.recipes.slice();
       }
+      addIngredientsToShoppingList(ingredients : Ingredient[]){
+        this.slService.addIngredients(ingredients);
+      }
+
 }
