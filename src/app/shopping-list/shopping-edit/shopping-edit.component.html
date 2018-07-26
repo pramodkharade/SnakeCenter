@@ -31,7 +31,7 @@
           [disabled]="!f.valid"
           >{{ editMode?'Update':'Add'}}</button>
           <button class="btn btn-danger">Delete</button>
-          <button class="btn btn-primary">Clear</button>
+          <button class="btn btn-primary" (click)="onClears()" type="button">Clear</button>
         </div>
       </div>
     </form>
