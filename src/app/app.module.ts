@@ -20,6 +20,7 @@ import { HttpModule } from "@angular/http";
 import { RecipeService } from './recipes/recipe.service';
 import { DataStorageService } from './shared/data.storage.service';
 import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { SignupComponent } from './auth/signup/signup.component';
     DropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
-    SignupComponent
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
