@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from "@angular/http";
 import { RecipeService } from './recipes/recipe.service';
 import { DataStorageService } from './shared/data.storage.service';
+import { SignupComponent } from './auth/signup/signup.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { DataStorageService } from './shared/data.storage.service';
     ShoppingEditComponent,
     DropdownDirective,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
