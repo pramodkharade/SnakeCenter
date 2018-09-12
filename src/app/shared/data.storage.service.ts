@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpRequest } from '@angular/common/http';
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from '../recipes/recipe.model';
 // tslint:disable-next-line:import-blacklist
@@ -16,11 +16,19 @@ export class DataStorageService {
 
     storeRecipes() {
         const token = this.authService.getToken();
-       return this.httpClient.put('https://snackrecipebook.firebaseio.com/recipes.json', this.recipeService.getRecipes(),
-       {
-           observe: 'body',
-           params: new HttpParams().set('auth', token)
-       })
+    //    return this.httpClient.put('https://snackrecipebook.firebaseio.com/recipes.json', this.recipeService.getRecipes(),
+    //    {
+    //        observe: 'body',
+    //        params: new HttpParams().set('auth', token)
+    //    });
+    const req = new HttpRequest('PUT',
+    'https://snackrecipebook.firebaseio.com/recipes.json',
+    this.recipeService.getRecipes(),
+    {
+        reportProgress: true, params: new HttpParams().set('auth', token)
+    }
+    );
+     return this.httpClient.request(req);
     }
     getRecipes() {
         const token = this.authService.getToken();
