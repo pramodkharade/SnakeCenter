@@ -20,7 +20,11 @@ export class DataStorageService {
     }
     getRecipes() {
         const token = this.authService.getToken();
-        this.httpClient.get<Recipe[]>('https://snackrecipebook.firebaseio.com/recipes.json?auth=' + token)
+        this.httpClient.get<Recipe[]>('https://snackrecipebook.firebaseio.com/recipes.json?auth=' + token
+        { 
+            observe: 'body',
+            responseType: 'json'
+        })
         .map((recipes) => {
             // tslint:disable-next-line:prefer-const
             for (let recipe of recipes) {
