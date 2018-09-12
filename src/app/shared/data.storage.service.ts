@@ -15,7 +15,6 @@ export class DataStorageService {
     private authService: AuthService) {}
 
     storeRecipes() {
-        const token = this.authService.getToken();
     //    return this.httpClient.put('https://snackrecipebook.firebaseio.com/recipes.json', this.recipeService.getRecipes(),
     //    {
     //        observe: 'body',
@@ -25,7 +24,7 @@ export class DataStorageService {
     'https://snackrecipebook.firebaseio.com/recipes.json',
     this.recipeService.getRecipes(),
     {
-        reportProgress: true, params: new HttpParams().set('auth', token)
+        reportProgress: true
     }
     );
      return this.httpClient.request(req);
